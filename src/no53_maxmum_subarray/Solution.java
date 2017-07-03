@@ -1,14 +1,15 @@
 package no53_maxmum_subarray;
 
 public class Solution {
-	public static  int maximunSubarray(int a[]){
-		int n = a.length;
-		int max = a[0], sum = a[0];
+	public static  int maximunSubarray(int nums[]){
+		int n = nums.length;
+		int max = nums[0], sum = nums[0];
 		for(int i = 1; i < n; ++i){
 			if(sum < 0){
-				sum = sum > a[i] ? sum : a[i];
+				max = sum = sum > nums[i] ? sum : nums[i];
+                continue;
 			}else{
-				if((sum += a[i]) < 0){
+				if((sum += nums[i]) < 0){
 					sum = 0;
 				}
 			}
